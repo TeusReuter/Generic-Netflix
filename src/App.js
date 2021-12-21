@@ -3,6 +3,7 @@ import Tmdb from './Tmdb';
 import './App.css';
 import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
+import Header from './components/Header';
 
 export default () => {
   
@@ -31,11 +32,13 @@ export default () => {
   return(
     <div className='page'>
       
+      <Header />
+
     {featuredData &&
       <FeaturedMovie item={featuredData} />
     }
 
-      <section className='lists'>
+      <section className="lists">
         {movieList.map((item, key) =>(
           <MovieRow key={key} title={item.title} items={item.items}/>
         ))}
