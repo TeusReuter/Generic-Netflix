@@ -1,1 +1,1 @@
-Layout da interface da Netflix criado em ReactJS
+Layout da interface da Netflix criado em ReactJS (em construção).
