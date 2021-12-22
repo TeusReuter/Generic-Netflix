@@ -1,6 +1,12 @@
 import React from 'react';
 import "./FeaturedMovie.css";
 
+// let description = item.overview;
+// if (description.length > 200) {
+
+// }
+
+
 export default ({ item }) => {
     console.log(item);
 
