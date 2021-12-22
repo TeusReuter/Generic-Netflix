@@ -9,6 +9,7 @@ export default () => {
   
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -29,11 +30,28 @@ export default () => {
     loadAll();
   }, []);
   
+  useEffect(() =>{
+    const scrollListener = () => {
+      if(window.scrollY > 10){
+        setBlackHeader(true);
+      }
+      else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }, []);
+
   return(
     <div className='page'>
       
-      <Header />
-
+      <Header black={blackHeader} />
+      
     {featuredData &&
       <FeaturedMovie item={featuredData} />
     }
@@ -43,6 +61,12 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items}/>
         ))}
       </section>
+
+      <footer>
+        © Matheus Reuter - 2021 <br/>
+        Direitos de imagem para Netflix e B7Web <br/>
+        Dados pegos do site Themoviedb.org 
+      </footer>
 
     </div>
   );
