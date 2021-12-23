@@ -1,21 +1,20 @@
 import React from 'react';
 import "./FeaturedMovie.css";
 
-// let description = item.overview;
-// if (description.length > 200) {
-
-// }
-
-
 export default ({ item }) => {
     console.log(item);
 
     let firstDate = new Date(item.first_air_date);
     let genres = [];
-    for(let i in item.genres){
-        genres.push( item.genres[i].name );
+    for (let i in item.genres) {
+        genres.push(item.genres[i].name);
     }
 
+
+    let description = item.overview;
+    if(description.length > 200){
+        description = description.substring(0, 200)+'...';
+    }
 
     return (
         <section className="featured" style={{
@@ -32,7 +31,7 @@ export default ({ item }) => {
                         <div className="featured--year">{firstDate.getFullYear()}</div>
                         <div className="featured--seasons">{item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}</div>
                     </div>
-                    <div className="featured--description">{item.overview}</div>
+                    <div className="featured--description">{description}</div>
                     <div className="featured--buttons">
                         <a href="https://www.netflix.com/br/login" className="featured--watchbutton">► Assistir</a>
                         <a href="https://www.netflix.com/br/login" className="featured--mylistbutton">+ Minha Lista</a>
