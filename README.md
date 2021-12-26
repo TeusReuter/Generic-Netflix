@@ -1,1 +1,3 @@
-Layout da interface da Netflix criado em ReactJS (em construção).
+Clone da interface da Netflix em React.
+
+
