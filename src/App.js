@@ -64,7 +64,7 @@ export default () => {
 
       <footer>
         © Matheus Reuter - 2021 <br />
-        Direitos de imagem para Netflix e B7Web <br />
+        Direitos de imagem para Netflix <br />
         Dados pegos do site Themoviedb.org
       </footer>
       {movieList.length <= 0 &&
